@@ -86,8 +86,8 @@ dir_counter = 0
 # some of them in the brackets and this is so for a reason
 extra_words = ['()', '[]', '(1)', '(2)', '(3)', '320',
                'Radio Edit', 'Album Version', 'Original Mix', 'Complete Version', 'Ultra Music', '(Remix)',
-               'Official Music Video',
-               'Official Video', 'Official track',
+               'Official Music Video', 'Music Video', 'Audio🎵',
+               'Official Video', 'Official Audio', 'Official track',
                'Официальный музыкальный клип', 'Официальное видео', 'Клип',
                'Official Lyric Video', 'Lyrics', 'Subtitulada Español', 'Spanish & English Subtitles',
                'English Subtitles',
@@ -99,13 +99,13 @@ extra_words = ['()', '[]', '(1)', '(2)', '(3)', '320',
                'musicore.net', 'mp3crazy.me', 'pesnik.su']
 
 extra_words_extended = [*[space_to_dash(w) for w in extra_words], *[space_to_underline(w) for w in extra_words],
-                        *[no_spaces(w) for w in extra_words]]
+                        *[no_spaces(w) for w in extra_words], *extra_words]
 extra_words_lowercase = [w.lower() for w in extra_words_extended]
 extra_words_uppercase = [w.upper() for w in extra_words_lowercase]
 
 # dict to remove duplicates
 extra_words_all_cases = list(
-    dict.fromkeys([*extra_words, *extra_words_extended, *extra_words_lowercase, *extra_words_uppercase]))
+    dict.fromkeys([*extra_words_extended, *extra_words_lowercase, *extra_words_uppercase]))
 
 extra_words_always_square_brackets = ['[' + w + ']' for w in extra_words_all_cases]
 extra_words_always_round_brackets = ['(' + w + ')' for w in extra_words_all_cases]
